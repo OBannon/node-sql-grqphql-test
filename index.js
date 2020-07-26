@@ -13,6 +13,10 @@ const PORT = process.env.PORT || 3000
 app.use(express.static(path.join(__dirname, "public")))
 app.use(express.json())   //parse all json requests
 //middleware
+app.use(graphqlHTTP({
+    schema: schema,
+    rootValue: resolver
+}))
 app.use((req, res, next) => {
     res.sendFile("/index.html")
 })
