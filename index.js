@@ -4,7 +4,6 @@ const express = require("express"),
       path    = require("path"),
       sequelize = require("./utils/database"),
       app     = express(),
-      todoRoutes = require("./routes/todo") 
 const PORT = process.env.PORT || 3000
 
 
