@@ -2,6 +2,7 @@ const { static } = require("express")
 
 const express = require("express"),
       path    = require("path"),
+      {graphqlHTTP} = require("express-graphql"),
       sequelize = require("./utils/database"),
       app     = express(),
 const PORT = process.env.PORT || 3000
