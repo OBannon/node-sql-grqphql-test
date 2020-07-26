@@ -20,9 +20,12 @@ module.exports = {
         return arr;
     },
     addTestUser({user: {name, email}}){
-        users.push({
+        const user = {
+
             name, email,
             age: Math.ceil(Math.random()*30)
-        })
+        }
+        users.push(user)
+        return user;
     }
 }
