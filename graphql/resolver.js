@@ -18,5 +18,11 @@ module.exports = {
             arr.push(random)
         }
         return arr;
+    },
+    addTestUser({user: {name, email}}){
+        users.push({
+            name, email,
+            age: Math.ceil(Math.random()*30)
+        })
     }
 }
