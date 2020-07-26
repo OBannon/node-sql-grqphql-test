@@ -15,7 +15,8 @@ app.use(express.json())   //parse all json requests
 //middleware
 app.use(graphqlHTTP({
     schema: schema,
-    rootValue: resolver
+    rootValue: resolver,
+    graphiql: true
 }))
 app.use((req, res, next) => {
     res.sendFile("/index.html")
