@@ -37,19 +37,24 @@
         if (!title) {
           return
         }
-        // this.todos.push({       //see lesson 92; time 6:40
-        //   title: title,
-        //   id: Math.random(),
-        //   done: false,
-        //   date: new Date()
-        // })
-        fetch("/api/todo", {
+        const query = `
+          mutation {
+            createTodo(todo: {title: "${title}"}){
+              id title done createdAt updatedAt
+            }
+          }
+        `
+        fetch("/graphql", {
           method: "post",
-          headers: {"Content-Type" : "application/json"},
-          body: JSON.stringify({title})
+          headers: {
+            "Content-Type" : "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({query})
         })
         .then(res => res.json())
-        .then(({todo}) => {
+        .then(response => {
+          const todo = response.data.createTodo
           this.todos.push(todo)
           this.todoTitle = ''
         })
