@@ -37,5 +37,17 @@ module.exports = {
         }catch(e){
             throw new Error("Fetch todos is not available.")
         }
+    },
+    //instead of routes/todo.js post, we use this post request
+    async createTodo({todo}){
+        try{
+            return await Todo.create({   
+                title: todo.title, 
+                done: false
+            })
+            
+        }catch(e){
+            throw new Error("Title is required.")    
+        }
     }
 }
