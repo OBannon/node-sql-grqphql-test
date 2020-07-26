@@ -10,14 +10,26 @@
       }
     },
     created(){
-      fetch("/api/todo", {
-        method: "get"
-      })
+      const query = `
+        query {
+          getTodos{
+            id title done createdAt updatedAt
+          }
+        }
+      `
+      //using Fetch to get data
+      fetch('/graphql', { //всегда отправляем только на один роут. Других не бывает.
+        method: "post",    //все запросы всегда POST в GraphQL.
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({query: query})   //обязательно ключ равен запросу
+      }) 
         .then(res => res.json())
-        .then(todos => {
-          this.todos = todos
+        .then(response => {
+          this.todos = response.data.getTodos
         })
-        .catch(e => console.log(e))
     },
     methods: {
       addTodo() {
