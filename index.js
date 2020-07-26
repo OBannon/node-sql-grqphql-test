@@ -12,7 +12,6 @@ const PORT = process.env.PORT || 3000
 //use static public folder
 app.use(express.static(path.join(__dirname, "public")))
 app.use(express.json())   //parse all json requests
-app.use("/api/todo", todoRoutes)   //this route gets us to an api json file
 //middleware
 app.use((req, res, next) => {
     res.sendFile("/index.html")
