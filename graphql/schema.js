@@ -3,6 +3,7 @@ const {buildSchema} = require("graphql")
 module.exports = buildSchema(`
     type User {
         name: String!
+        email: String!
         age: Int!
     }
     type TestType {
@@ -11,5 +12,6 @@ module.exports = buildSchema(`
     }
     type Query{
         test: TestType!
+        random(min: Int!, max:Int!, count:Int!): [Float!]!
     }
 `)
