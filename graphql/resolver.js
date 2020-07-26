@@ -1,5 +1,4 @@
 const Todo = require("../models/todo")
-const { ne } = require("sequelize/types/lib/operators")
 
 const users = [
     {name: "Igor", age: 30, email: "igor@mail.com"},
