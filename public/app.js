@@ -95,7 +95,7 @@
           options.minute = "2-digit"
           options.second = "2-digit"
         }
-        return new Intl.DateTimeFormat('ru-RU', options).format(new Date(value))
+        return new Intl.DateTimeFormat('ru-RU', options).format(new Date(+value))
       }
     }
   })
